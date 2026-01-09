@@ -12,7 +12,7 @@ public class HelloResourceTwo {
     @Produces(MediaType.APPLICATION_JSON)
     public String hello() {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("api-key", "dummy-api-key");
+        jsonObject.put("apiKey", "dummy-api-key");
         return jsonObject.toString();
     }
 }
