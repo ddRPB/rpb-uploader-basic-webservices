@@ -18,6 +18,7 @@ import java.util.List;
 
 @Path("/api/v1/pacs/generateuids")
 public class GenerateUIDResource {
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response generateDicomUids(@Context HttpHeaders headers,

@@ -1,5 +1,7 @@
 package de.dktk.dd.rpb.uploaderbasicwebservices;
 
+import de.dktk.dd.rpb.uploaderbasicwebservices.util.Counter;
+import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
@@ -8,9 +10,22 @@ import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.HttpHeaders;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.json.JSONObject;
 
-@Path("/v1/pacs")
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Path("/api/v1/pacs")
 public class PacsSubjectResource {
+
+    //private final Counter counter;
+
+    //@Inject
+    //public PacsSubjectResource(Counter counter) {
+    //    this.counter = counter;
+    //}
 
     @GET
     @Path("/subjects/{subjectid}/studies/{study}/series/{series}")
@@ -19,8 +34,23 @@ public class PacsSubjectResource {
                                        @PathParam("subjectid") String dicomPatientId,
                                        @PathParam("study") String studyInstanceUid,
                                        @PathParam("series") String seriesInstanceUid){
-        //return Response.ok().build();
-        return jakarta.ws.rs.core.Response.status(200).entity("28").build();
+
+        int count = 34;
+        List<String> imageArray = new ArrayList<>();
+        for (int i=0; i<count; i++){
+                imageArray.add("0");
+        }
+
+        Map<String,List> seriesImages = new HashMap<>();
+        seriesImages.put("Images",imageArray);
+
+        List<Map> seriesData = new ArrayList<>();
+        seriesData.add(seriesImages);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("Series", seriesData);
+
+        return Response.status(200).entity(jsonObject.toString()).build();
     }
 
 }
