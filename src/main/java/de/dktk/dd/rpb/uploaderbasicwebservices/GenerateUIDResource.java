@@ -8,10 +8,10 @@ import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.HttpHeaders;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.dcm4che3.util.UIDUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-//import org.dcm4che.util.UIDUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +42,7 @@ public class GenerateUIDResource {
 
         try {
             for (int i = 0; i < count; i++) {
-                //uidList.add(UIDUtils.createUID(orgRootPrefix));
-                uidList.add("0");
+                uidList.add(UIDUtils.createUID(orgRootPrefix));
             }
         } catch (Exception err) {
             return Response.status(500).build();

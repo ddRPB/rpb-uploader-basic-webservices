@@ -1,16 +1,26 @@
 package de.dktk.dd.rpb.uploaderbasicwebservices.util;
 
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Singleton;
+import jakarta.enterprise.context.ApplicationScoped;
 
-@Singleton
+import java.util.HashMap;
+
+@ApplicationScoped
 public class Counter implements ICounter {
-    private int count =0;
 
-    public int getCount() {
-        return count;
+    private HashMap<String, Integer> UIDmap = new HashMap<>();
+
+    public int getCount(String uid) {
+        return UIDmap.get(uid);
     }
-    public void setCount(int count) {
-        this.count = count;
+
+    public void addUID(String uid, int count) {
+        UIDmap.put(uid, count);
+    }
+
+    public Boolean hasUID(String uid){
+        if(UIDmap.containsKey(uid)){
+            return true;
+        }
+        return false;
     }
 }

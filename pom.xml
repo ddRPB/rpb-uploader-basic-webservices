@@ -12,9 +12,9 @@
 
     <repositories>
         <repository>
-            <id>www.dcm4che.org</id>
+            <id>dcm4che</id>
             <name>dcm4che Repository</name>
-            <url>https://maven.dcm4che.org/</url>
+            <url>https://www.dcm4che.org/maven2</url>
         </repository>
     </repositories>
     <properties>
@@ -23,6 +23,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <junit.version>5.10.0</junit.version>
         <org.springframework.version>5.2.8.RELEASE</org.springframework.version>
+        <dcm4che.version>5.25.2</dcm4che.version>
     </properties>
 
     <dependencies>
@@ -83,21 +84,19 @@
         <dependency>
             <groupId>org.dcm4che</groupId>
             <artifactId>dcm4che-core</artifactId>
-            <version>5.34.1</version>
-            <type>pom</type>
+            <version>${dcm4che.version}</version>
+
         </dependency>
         <dependency>
             <groupId>org.dcm4che</groupId>
             <artifactId>dcm4che-image</artifactId>
-            <version>5.34.1</version>
-            <type>pom</type>
+            <version>${dcm4che.version}</version>
 
         </dependency>
         <dependency>
             <groupId>org.dcm4che</groupId>
             <artifactId>dcm4che-net</artifactId>
-            <version>5.34.1</version>
-            <type>pom</type>
+            <version>${dcm4che.version}</version>
 
         </dependency>
         <!-- https://mvnrepository.com/artifact/jakarta.mail/jakarta.mail-api -->
@@ -132,6 +131,12 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webflux</artifactId>
             <version>${org.springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
         </dependency>
 
     </dependencies>

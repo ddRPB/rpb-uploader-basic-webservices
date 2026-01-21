@@ -1,7 +1,8 @@
 package de.dktk.dd.rpb.uploaderbasicwebservices.util;
 
 public interface ICounter {
-    public int getCount();
-    public void setCount(int count);
+    public int getCount(String uid);
+    public void addUID(String uid, int count);
+    public Boolean hasUID(String uid);
 
 }

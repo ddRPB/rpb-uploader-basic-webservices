@@ -20,12 +20,7 @@ import java.util.Map;
 @Path("/api/v1/pacs")
 public class PacsSubjectResource {
 
-    //private final Counter counter;
-
-    //@Inject
-    //public PacsSubjectResource(Counter counter) {
-    //    this.counter = counter;
-    //}
+    @Inject private Counter counter;
 
     @GET
     @Path("/subjects/{subjectid}/studies/{study}/series/{series}")
@@ -35,10 +30,14 @@ public class PacsSubjectResource {
                                        @PathParam("study") String studyInstanceUid,
                                        @PathParam("series") String seriesInstanceUid){
 
-        int count = 34;
+        int count;
         List<String> imageArray = new ArrayList<>();
-        for (int i=0; i<count; i++){
-                imageArray.add("0");
+
+        if(this.counter.hasUID(seriesInstanceUid)){
+            count = this.counter.getCount(seriesInstanceUid);
+            for(int i = 0; i < count; i++) {
+                imageArray.add(seriesInstanceUid);
+            }
         }
 
         Map<String,List> seriesImages = new HashMap<>();
