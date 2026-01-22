@@ -23,4 +23,8 @@ public class Counter implements ICounter {
         }
         return false;
     }
+
+    public void removeUID(String uid){
+        UIDmap.remove(uid);
+    }
 }

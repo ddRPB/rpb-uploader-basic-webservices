@@ -38,6 +38,7 @@ public class PacsSubjectResource {
             for(int i = 0; i < count; i++) {
                 imageArray.add(seriesInstanceUid);
             }
+            this.counter.removeUID(seriesInstanceUid);
         }
 
         Map<String,List> seriesImages = new HashMap<>();
