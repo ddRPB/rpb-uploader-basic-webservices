@@ -7,7 +7,7 @@ import jakarta.ws.rs.core.MediaType;
 import org.json.JSONObject;
 
 @Path("/pacs/rpbUploader.faces")
-public class HelloResourceTwo {
+public class ConnectResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String hello() {
