@@ -23,7 +23,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <junit.version>5.10.0</junit.version>
         <org.springframework.version>5.2.8.RELEASE</org.springframework.version>
-        <dcm4che.version>5.25.2</dcm4che.version>
+        <dcm4che.version>5.34.2</dcm4che.version>
     </properties>
 
     <dependencies>
