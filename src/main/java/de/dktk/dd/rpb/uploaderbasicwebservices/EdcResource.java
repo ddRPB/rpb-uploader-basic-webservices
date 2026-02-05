@@ -7,17 +7,14 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Path("/api/v1/edc")
-public class LinkDicomStudyResource {
+public class EdcResource {
 
     @POST
     @Path("/linkdicomstudy")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response generateDicomUids(@Context HttpHeaders headers) {
+    public Response linkDicomStudy(@Context HttpHeaders headers) {
 
         JSONObject jsonObj = new JSONObject();
         return Response.status(200).entity(jsonObj.toString()).build();
